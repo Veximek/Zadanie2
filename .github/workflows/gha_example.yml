@@ -71,7 +71,12 @@ jobs:
             image: ${{ steps.meta.outputs.tags }}
             ignore-unchanged: true
             only-severities: high,critical
-      
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      -
+        name: Check scan result
+        id: check-scout
+        run: echo "result=${{ steps.docker-scout.conclusion }}" >> $GITHUB_ENV
       - 
         name: Push the Docker image
         if: steps.docker-scout.outputs.result == 'success'
