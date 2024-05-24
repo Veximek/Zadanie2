@@ -1,0 +1,1 @@
+Pełne rozwiązanie w zadanie1_dod.md
