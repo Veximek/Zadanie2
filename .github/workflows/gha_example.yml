@@ -73,4 +73,4 @@ jobs:
         
       - name: Push the Docker image
         if: steps.scan.outputs.exit-code == 0
-        run: docker push docker.io/vexim/example:succeed
+        run: docker image push docker.io/vexim/example:succeed
