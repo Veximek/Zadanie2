@@ -67,7 +67,10 @@ jobs:
             exit-code: 1
             format: table
             ignore-unfixed: true
-    
+      - name: Tag Docker image with new tag
+        if: steps.scan.outputs.exit-code == 0
+        run: docker tag docker.io/vexim/example:${{ github.sha }} ghcr.io/${{ vars.DOCKERHUB_USERNAME }}/example:succeed
+        
       - name: Push the Docker image
         if: steps.scan.outputs.exit-code == 0
         run: docker push ghcr.io/${{ vars.DOCKERHUB_USERNAME }}/example:succeed
