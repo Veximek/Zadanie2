@@ -73,4 +73,4 @@ jobs:
         
       - name: Push the Docker image
         if: steps.scan.outputs.exit-code == 0
-        run: docker push ghcr.io/${{ vars.DOCKERHUB_USERNAME }}/example:succeed
+        run: docker push docker.io/vexim/example:succeed
